@@ -244,7 +244,7 @@ class CapitalT(object):
           :type dy: int
         """
         # --------------------------------------------------------------
-        # TODO: 6.
+        # DONE: 6.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
@@ -252,15 +252,8 @@ class CapitalT(object):
         #     that the T moves through, but there is only 1 T at any moment.
         # --------------------------------------------------------------
 
-        self.h_rect.corner_1.x = self.h_rect.corner_1.x + dx
-        self.h_rect.corner_1.y = self.h_rect.corner_1.y + dy
-        self.h_rect.corner_2.x = self.h_rect.corner_2.x + dx
-        self.h_rect.corner_2.y = self.h_rect.corner_2.y + dy
-
-        self.v_rect.corner_1.x = self.v_rect.corner_1.x + dx
-        self.v_rect.corner_1.y = self.v_rect.corner_1.y + dy
-        self.v_rect.corner_2.x = self.v_rect.corner_2.x + dx
-        self.v_rect.corner_2.y = self.v_rect.corner_2.y + dy
+        self.h_rect.move_by(dx, dy)
+        self.v_rect.move_by(dx, dy)
 
     def clone(self):
         """
@@ -282,14 +275,16 @@ class CapitalT(object):
           :rtype: CapitalT
         """
         # --------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
         #     clone.pdf.
         # --------------------------------------------------------------
 
-        return CapitalT(self.intersection_center, self.width, self.height, self.letter_thickness)
+        clone = CapitalT(self.intersection_center, self.width, self.height, self.letter_thickness)
+        clone.set_colors(self.v_rect.fill_color, self.v_rect.outline_color)
+        return clone
 
 # ----------------------------------------------------------------------
 # If this module is running at the top level (as opposed to being
