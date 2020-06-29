@@ -153,6 +153,7 @@ class CapitalT(object):
         corner2 = rg.Point(intersection_center.x + letter_thickness / 2, intersection_center.y - letter_thickness / 2 + height)
         self.v_rect = rg.Rectangle(corner1, corner2)
 
+        # instance variables for future reference
         self.fill_color = None
         self.outline_color = 'black'
         self.intersection_center = intersection_center
