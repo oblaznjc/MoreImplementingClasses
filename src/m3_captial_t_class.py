@@ -252,19 +252,15 @@ class CapitalT(object):
         #     that the T moves through, but there is only 1 T at any moment.
         # --------------------------------------------------------------
 
-        self.intersection_center.x = self.intersection_center.x + dx
-        self.intersection_center.y = self.intersection_center.y + dy
+        self.h_rect.corner_1.x = self.h_rect.corner_1.x + dx
+        self.h_rect.corner_1.y = self.h_rect.corner_1.y + dy
+        self.h_rect.corner_2.x = self.h_rect.corner_2.x + dx
+        self.h_rect.corner_2.y = self.h_rect.corner_2.y + dy
 
-        corner1 = rg.Point(self.intersection_center.x - self.width / 2,
-                           self.intersection_center.y - self.letter_thickness / 2)
-        corner2 = rg.Point(self.intersection_center.x + self.width / 2,
-                           self.intersection_center.y + self.letter_thickness / 2)
-
-        # corner math for v_rect
-        corner1 = rg.Point(self.intersection_center.x - self.letter_thickness / 2,
-                           self.intersection_center.y - self.letter_thickness / 2)
-        corner2 = rg.Point(self.intersection_center.x + self.letter_thickness / 2,
-                           self.intersection_center.y - self.letter_thickness / 2 + self.height)
+        self.v_rect.corner_1.x = self.v_rect.corner_1.x + dx
+        self.v_rect.corner_1.y = self.v_rect.corner_1.y + dy
+        self.v_rect.corner_2.x = self.v_rect.corner_2.x + dx
+        self.v_rect.corner_2.y = self.v_rect.corner_2.y + dy
 
     def clone(self):
         """
@@ -294,7 +290,6 @@ class CapitalT(object):
         # --------------------------------------------------------------
 
         return CapitalT(self.intersection_center, self.width, self.height, self.letter_thickness)
-
 
 # ----------------------------------------------------------------------
 # If this module is running at the top level (as opposed to being
